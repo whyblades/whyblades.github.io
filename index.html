@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Фёдор Баушев | Portfolio & CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --card-border: #30363d;
+      --accent: #58a6ff;
+      --accent-glow: rgba(88, 166, 255, 0.15);
+      --text-main: #c9d1d9;
+      --text-muted: #8b949e;
+      --text-bright: #ffffff;
+      --tag-bg: #21262d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 40px 20px 60px 20px;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(180deg, rgba(88, 166, 255, 0.05) 0%, rgba(22, 27, 34, 0.7) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 36px;
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 180px;
+      height: 180px;
+      background: var(--accent);
+      filter: blur(100px);
+      opacity: 0.2;
+      border-radius: 50%;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--tag-bg);
+      border: 1px solid var(--card-border);
+      color: var(--accent);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #3fb950;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #3fb950;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      color: var(--text-bright);
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .bio {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 680px;
+    }
+
+    /* Section Headers */
+    .section-title {
+      font-size: 1.4rem;
+      color: var(--text-bright);
+      margin: 40px 0 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--card-border);
+    }
+
+    /* Cards & Grids */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .card h3 {
+      color: var(--text-bright);
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    /* Tags */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      background: var(--card-bg);
+      border-left: 3px solid var(--accent);
+      border-top: 1px solid var(--card-border);
+      border-right: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+    }
+
+    .timeline-date {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .timeline-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Hero Header -->
+    <header class="hero">
+      <div class="status-badge">
+        <span class="status-dot"></span> Студент НИУ ВШЭ (бюджет)
+      </div>
+      <h1>Фёдор Баушев</h1>
+      <div class="subtitle">Software Developer | Aspiring ML Engineer & Data Analyst</div>
+      <p class="bio">
+        Увлекаюсь программированием с детства. Выпускник школы из ТОП-5 Москвы. 
+        Обладаю практическим коммерческим опытом разработки с 15 лет (фриланс), 
+        сочетаю академическую базу дискретной математики и алгоритмов с созданием прикладных сервисов.
+      </p>
+    </header>
+
+    <!-- Стек навыков -->
+    <section>
+      <h2 class="section-title">Стек и компетенции</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Python & Data Processing</h3>
+          <p>Разработка отказоустойчивых парсеров, автоматизация сбора и первичной очистки данных, опыт работы с многопоточностью и API.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Web Scraping</span>
+            <span class="tag">Asyncio</span>
+            <span class="tag">Data Prep</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Backend & Go</h3>
+          <p>Проектирование серверной архитектуры, работа с микросервисными паттернами, сетевыми протоколами и базами данных.</p>
+          <div class="tags">
+            <span class="tag">Golang</span>
+            <span class="tag">REST API</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Git</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>C++ & CS Fundamentals</h3>
+          <p>Глубокое освоение эффективных алгоритмов, структур данных, теории сложности и низкоуровневой оптимизации вычислений.</p>
+          <div class="tags">
+            <span class="tag">C++</span>
+            <span class="tag">Algorithms</span>
+            <span class="tag">Data Structures</span>
+            <span class="tag">OOP</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Опыт и проекты -->
+    <section>
+      <h2 class="section-title">Опыт и проекты</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">В настоящее время</div>
+          <div class="timeline-title">Академическая подготовка и системное программирование (НИУ ВШЭ)</div>
+          <p class="bio">Изучение высшей математики, алгоритмических структур и написание производительного кода на C++. Фокус на подготовке к задачам Machine Learning и аналитики больших данных.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Pet-Project</div>
+          <div class="timeline-title">Бэкенд-сервис на Golang</div>
+          <p class="bio">Разработка собственного сервиса с архитектурой на Go: реализация маршрутизации, логики обработки запросов и взаимодействия с хранилищем данных.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">С 15 лет</div>
+          <div class="timeline-title">Фриланс-разработка (Python)</div>
+          <p class="bio">Коммерческая разработка скриптов автоматизации и парсеров данных. Решение задач обхода антифрод-систем, структурирования неструктурированного контента и доставки выгрузок заказчикам.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Цели и фокус -->
+    <section>
+      <h2 class="section-title">Направление развития</h2>
+      <div class="card">
+        <h3>Machine Learning & Data Analytics</h3>
+        <p>
+          Стремлюсь применить сильную математическую базу и инженерный бэкграунд для проектирования и обучения ML-моделей, 
+          исследования сложных взаимосвязей в данных и создания аналитических пайплайнов production-уровня.
+        </p>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
